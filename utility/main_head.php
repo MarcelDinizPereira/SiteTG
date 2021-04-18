@@ -21,7 +21,6 @@
         {
             echo 
             '<a href="includes/logout.inc.php">
-                <img class="btn_img" src="icon_client.png">
                 <div class="text">Sair</div>
             </a>';
         }

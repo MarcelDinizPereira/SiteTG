@@ -4,6 +4,18 @@
 <div class="centrao">
     <h2>Log In</h2></br>
 
+    <?php if(isset($_SESSION["useruid"]))
+        {
+            echo 
+            '<a href="includes/logout.inc.php">
+                <div class="text">Você já está logado</div>
+            </a>';
+        }
+        else
+        {
+            echo '<div class="text">Bem-Vindo.</div>';
+        }
+?>
     <form action="includes/login.inc.php" method="post">
         <input type="text" name="uid" placeholder="Nome"></br></br>
         <input type="password" name="pwd" placeholder="Senha"></br></br>
@@ -36,7 +48,7 @@
                 else if ($_GET["error"] == "wronglogin"){
                     echo "Senha ou usuário inválido";
                 }
-            }
+            }   
         ?>
     </h3>
 
