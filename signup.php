@@ -28,7 +28,7 @@
         <?php 
             if(isset($_GET["error"])){
                 if($_GET["error"] == "emptyinput"){
-                    echo "Campos vazios";
+                    echo "Campos vazios2";
                 }
                 else if ($_GET["error"] == "invaliduid"){
                     echo "Nome de usuário inválido";
