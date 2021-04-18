@@ -24,29 +24,30 @@
             </div>
         </form>
 
-
-    <?php 
-        if(isset($_GET["error"])){
-            if($_GET["error"] == "emptyinput"){
-                echo "Campos vazios detectados";
+    <h3>
+        <?php 
+            if(isset($_GET["error"])){
+                if($_GET["error"] == "emptyinput"){
+                    echo "Campos vazios";
+                }
+                else if ($_GET["error"] == "invaliduid"){
+                    echo "Nome de usuário inválido";
+                }
+                else if ($_GET["error"] == "invalidemail"){
+                    echo "Email inválido";
+                }
+                else if ($_GET["error"] == "passworddontmatch"){
+                    echo "Senhas diferentes";
+                }
+                else if ($_GET["error"] == "usernametaken"){
+                    echo "Usuário já em uso";
+                }
+                else if ($_GET["error"] == "none"){
+                    echo "<h2>Cadastrado com sucesso</h2>";
+                }
             }
-            else if ($_GET["error"] == "invaliduid"){
-                echo "Nome de usuário inválido";
-            }
-            else if ($_GET["error"] == "invalidemail"){
-                echo "Email inválido";
-            }
-            else if ($_GET["error"] == "passworddontmatch"){
-                echo "Senhas diferentes";
-            }
-            else if ($_GET["error"] == "usernametaken"){
-                echo "Usuário já em uso";
-            }
-            else if ($_GET["error"] == "none"){
-                echo "<h2>Cadastrado com sucesso</h2>";
-            }
-        }
-    ?>
+        ?>
+    </h3>
 
 
 <!-- Footer -->

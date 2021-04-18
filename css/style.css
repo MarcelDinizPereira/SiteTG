@@ -97,7 +97,11 @@ body{
 }
 /* WHITE BOX */
 
-
+.centered{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
 
 /* Mudanças texto */
 .big_text{
@@ -184,27 +188,16 @@ body{
 
 /* IMG block */
 
-
-/* Button */
-.btn_area{
-    padding: 50px;
-}
-
+/* Button border: whitesmoke solid 2px; */
 .custom_btn{
-    background-color: whitesmoke;
-    border: #4f94cc solid 2px;
+    background-color: #5387b3;
+    border: whitesmoke solid 2px;
     margin-right: 20px;
     margin-bottom: 20px;
     border-radius: 12px;
-    width: 250px;
-    height: 100px;
     display: inline-block;
     box-shadow: 4px 8px 16px 0px rgba(0,0,0,0.8);
-}
-.custom_btn .sm{
-    width: 100px;
-    height: 100px;
-}
+}   
 .custom_btn:hover{
     transform: scale(1.1);
     transition: all 0.3s ease;
@@ -213,26 +206,87 @@ body{
 .custom_btn a{
     text-decoration: none;
 }
-
-
-.btn_img{
+.custom_btn .big_w_img{
+    width: 250px;
+    height: 100px;
+}
+.custom_btn_img{
     margin: 4px;
     height: 63px;
     width: 63px;
     left: 10px;
 }
 
-.btn_txt{
+.custom_btn .sm{
+    width: 130px;
+    height: 40px;
+}
+
+.custom_btn .btn_txt{
     display: inline-block;
     position: relative;
-    color: black;
-    font-size: 20px;
+    color: whitesmoke;
+    font-size: 18px;
     font-weight:bold;
     margin: 2px;
-    top: 12px;
+    top: 6px;
     width: 170px;
-    height: 80px;
+    height: 25px;
     word-wrap: break-word;
     overflow-y: auto; /* Make it able to scroll ONLY if it needs to */
 }
 /* Button */
+
+
+
+/* Button for forms. Yes, for some reason the buttons within the form get all glitched out. You have to remake them. */
+.scp_button{
+    background-color: #5387b3;
+    border: whitesmoke solid 2px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    display: inline-block;
+    box-shadow: 4px 8px 16px 0px rgba(0,0,0,0.8);
+
+    color: white;
+    font-size: 18px;
+}
+.scp_button:hover{
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.scp_button .sm{
+    width: 140px;
+    height: 40px;
+}
+.scp_button .scp_centered{
+    margin: auto;
+    padding:7px;
+}
+
+
+.scp_button_exit{
+    background-color: #5387b3;
+    border: whitesmoke solid 2px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    width: 140px;
+    height: 30px;
+    display: inline-block;
+    box-shadow: 4px 8px 16px 0px rgba(0,0,0,0.8);
+}
+.scp_button_exit:hover{
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.scp_button_exit a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 20px;
+    margin-left: 35px;
+}
+/* */

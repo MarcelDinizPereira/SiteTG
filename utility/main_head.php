@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Pet e Saúde</title>
-    <link rel="stylesheet" type="text/css" href="css/style2.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 
 
@@ -17,14 +17,13 @@
             <img class="logo" src="x.bmp">
 
         <?php
-        if(isset($_SESSION["useruid"])){
-            echo "<li>teu cu</li>";
+        if(isset($_SESSION["useruid"]))
+        {
             echo 
             '<a href="includes/logout.inc.php">
                 <img class="btn_img" src="icon_client.png">
-                <div class="btn_txt">Entrar na conta</div>
+                <div class="text">Sair</div>
             </a>';
-            echo '<div class="text">-nomecliente-.</div>';
         }
         else
         {

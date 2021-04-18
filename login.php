@@ -24,12 +24,24 @@
             </a>
         </div>
     </form>
-</div>
 
-<audio controls loop>
-        <source src="contents/music/gwyn_theme.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+
+    <h3>
+        <?php 
+            if(isset($_GET["error"]))
+            {
+                if($_GET["error"] == "emptyinput"){
+                    echo "Campos vazios";
+                }
+                else if ($_GET["error"] == "wronglogin"){
+                    echo "Senha ou usuário inválido";
+                }
+            }
+        ?>
+    </h3>
+
+
+</div>
 
 <!-- Footer -->
 <?php include "utility/footer.php"; ?>
