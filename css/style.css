@@ -12,12 +12,11 @@ body{
 
 
 /* Nav bar*/
+
 .logo{
     position: absolute;
-    height: 63px;
-    width: 190px;
     left: 2%;
-    padding-top: 15px;
+    padding-top: 2px;
 }
 .navbar{
     height:80px;
@@ -27,7 +26,7 @@ body{
 }
 .navbar .text{
     position: absolute;
-    left: 18%;
+    left: 14%;
     top: 20px;
     font-size: 30px;
     color: rgb(66, 66, 66);
@@ -101,7 +100,7 @@ body{
     margin: auto;
     width: 50%;
     padding: 10px;
-  }
+}
 
 /* Mudanças texto */
 .big_text{
@@ -112,29 +111,53 @@ body{
     border-radius: 10px;
 }
 
+.soft_text{
+    font-size: 20px;
+    color: #3f3f3f;
+}
+
+.text_centered{
+    text-align: center;
+}
+
 .sumario_txt{
     text-align: center;
-    font-size: 30px;
+    font-size: 32px;
+    color:rgb(12, 128, 51);
+}
+.sumario_txt .smol{
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
     color:rgb(12, 128, 51);
 }
 
 .sep li{
     margin-bottom: 18px;
 }
-/* Mudanças texto */
 
+.cnt{
+    position: relative;
+    text-align: center;
+}
+
+.cnt .soft_text{
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+/* Mudanças texto */
 
 
 /* Scale up */
 .scaleup:hover{
     transform: scale(2);
-    display:inline-block; 
+    display:inline-block;
     transition: all 1s ease;
     cursor: pointer;
     z-index: 3;
 }
 /* Scale up */
-
 
 
 /* TXT block */
@@ -161,7 +184,6 @@ body{
 /* TXT block */
 
 
-
 /* VID block */
 .vid_block{
     position: absolute;
@@ -186,7 +208,12 @@ body{
     width: 50%;
 }
 
+.bg_img{
+    height: 400px;
+    right: 8px;
+}
 /* IMG block */
+
 
 /* Button border: whitesmoke solid 2px; */
 .custom_btn{
@@ -238,7 +265,6 @@ body{
 /* Button */
 
 
-
 /* Button for forms. Yes, for some reason the buttons within the form get all glitched out. You have to remake them. */
 .scp_button{
     background-color: #5387b3;
@@ -265,8 +291,6 @@ body{
     margin: auto;
     padding:7px;
 }
-
-
 .scp_button_exit{
     background-color: #5387b3;
     border: whitesmoke solid 2px;

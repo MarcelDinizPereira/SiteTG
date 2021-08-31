@@ -4,10 +4,8 @@ include "../utility/errorHandler.php";
 require_once "dbh.inc.php";
 require_once "functions.inc.php";
 
-/* Verify if the user entered this on the correct way (finishing form and pressing the button. */
+/* Verify if the user entered this on the correct way (finishing form and pressing the button.) */
 if (isset($_POST["submit"])){
-    echo "Tá serto";
-
     $name = $_POST["name"];
     $email = $_POST["email"];
     $username = $_POST["uid"];

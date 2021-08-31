@@ -1,24 +1,27 @@
 <!-- Navbar e head -->
-<?php include "utility/main_head.php"; ?>
+<?php include "utility/head.php"; ?>
 
 <div class="centrao">
-    <h2>Log In</h2></br>
-
     <?php if(isset($_SESSION["useruid"]))
         {
             echo 
-            '<a href="includes/logout.inc.php">
-                <div class="text">Você já está logado</div>
+            '
+            <script>alert("Você já está logado") </script>
+            <a href="pag_user.php">
+                <div class="text">Você já está logado. Retorne para sua página de usuário clicando aqui.</div>
             </a>';
+            header("location: pag_user.php");
         }
         else
         {
-            echo '<div class="text">Bem-Vindo.</div>';
+            echo '<div class="text"><h2>Entre em sua conta</h2></div>';
         }
-?>
+    ?>
     <form action="includes/login.inc.php" method="post">
-        <input type="text" name="uid" placeholder="Nome"></br></br>
-        <input type="password" name="pwd" placeholder="Senha"></br></br>
+        <br>Nome de usuário ou email:<br>
+        <input type="text" name="uid" placeholder="UsuárioExemplo"></br></br>
+        Senha:<br>
+        <input type="password" name="pwd" placeholder="*****"></br></br>
         
         <!-- Small Signup Button -->
         <button type="submit" name="submit" class="scp_button">

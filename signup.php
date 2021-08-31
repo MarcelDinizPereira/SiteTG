@@ -1,5 +1,19 @@
 <!-- Navbar e head -->
-<?php include "utility/main_head.php"; ?>    
+<?php include "utility/head.php"; ?>
+
+<?php if(isset($_SESSION["useruid"]))
+        {
+            echo 
+            '
+            <script>alert("Você já está logado") </script>
+            <a href="pag_user.php">
+                <div class="text">Você já está logado. Retorne para sua página de usuário clicando aqui.</div>
+            </a>
+            ';
+            header("location: pag_user.php");
+        }
+?>
+
     <h2>Cadastro</h2>
     
     <form action="includes/signup.inc.php" method="post">
@@ -8,6 +22,7 @@
         <input type="text" name="uid" placeholder="Nome de Usuário"></br></br>
         <input type="password" name="pwd" placeholder="Senha"></br></br>
         <input type="password" name="pwd2" placeholder="Repita a senha"></br></br>
+
         <!-- Small Signup Button -->
         <button type="submit" name="submit" class="scp_button">
             <div class="sm">
@@ -15,7 +30,7 @@
             </div>
         </button>
         
-    </br>
+        </br>
 
         <div class="scp_button_exit">
             <a href="main.php">

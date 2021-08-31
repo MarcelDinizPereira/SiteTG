@@ -81,9 +81,10 @@ function createUser($conn, $name, $email, $username, $pwd){
     mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../main.php?error=none");
+    header("location: ../signup.php?error=none");
     exit();
 }
+
 
 function emptyInputLogin($username, $pwd){
     $result;
@@ -117,4 +118,163 @@ function loginUser($conn, $username, $pwd){
         header("location: ../pag_user.php");
         exit(); 
     }
+}
+
+function showPets($conn){
+    $data = $_SESSION['userid'];
+    // Created template    
+    $sql = "SELECT * FROM pet WHERE usersId = ?;";
+    // Created prepared statement
+    $stmt = mysqli_stmt_init($conn);
+
+    //Preparing the prepared statement
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        echo "SQL statment failed";
+    }else{
+        //Bind parameter to placeholder
+        mysqli_stmt_bind_param($stmt, "i", $data);
+
+        //Running parameters inside DB
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            echo
+            "Id do Pet: ". $row['idPet'] .
+            " // Nome do Pet: " . $row['nomePet'] .
+            "<br>Genero: " . $row['generoPet'] .
+            " // Idade: " . $row['idadePet'] . " Anos.// " .
+            "<br>Raca: " . $row['racaPet'] .
+            "<br>ID do dono: " . $row['usersId'] .
+            "<hr><br>";
+        }
+    }  
+}
+
+function showPetInfo($conn){
+    $data = $_SESSION['userid'];
+    $idPet = $_POST['idPet'];
+
+    // Created template    
+    $sql = "SELECT * FROM pet WHERE (usersId = ? AND idPet = ?);";
+    // Created prepared statement
+    $stmt = mysqli_stmt_init($conn);
+
+    //Preparing the prepared statement
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        echo "SQL statment failed";
+    }else{
+        //Bind parameter to placeholder
+        mysqli_stmt_bind_param($stmt, "ii", $data, $idPet);
+
+        //Running parameters inside DB
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            echo 
+            "Nome: " . $row['nomePet'] .
+            "<br>Id Pet: " . $row['idPet'] .
+            "<br>Genero: " . $row['generoPet'] .
+            "<br>Idade: " . $row['idadePet'] . 
+            "<br>Raca: " . $row['racaPet'];
+        }
+    }  
+}
+
+function showPetInfoName($conn){
+    $data = $_SESSION['userid'];
+    $idPet = $_POST['idPet'];
+
+    // Created template    
+    $sql = "SELECT * FROM pet WHERE (usersId = ? AND idPet = ?);";
+    // Created prepared statement
+    $stmt = mysqli_stmt_init($conn);
+
+    //Preparing the prepared statement
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        echo "SQL statment failed";
+    }else{
+        //Bind parameter to placeholder
+        mysqli_stmt_bind_param($stmt, "ii", $data, $idPet);
+
+        //Running parameters inside DB
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            echo 
+            "Bem-vindo(a) a pagina do pet: " . $row['nomePet'] . "<br>";
+        }
+    }  
+}
+
+function choosePetFromList($conn){
+    $data = $_SESSION['userid'];
+    // Created template    
+    $sql = "SELECT * FROM pet WHERE usersId = ?;";
+    // Created prepared statement
+    $stmt = mysqli_stmt_init($conn);
+
+    //Preparing the prepared statement
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        echo "SQL statment failed";
+    }else{
+        //Bind parameter to placeholder
+        mysqli_stmt_bind_param($stmt, "i", $data);
+
+        //Running parameters inside DB
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            echo
+            "<option value=". $row['idPet'] .">".
+            $row['nomePet']."</option>";
+        }
+    }  
+}
+
+function showUserInfo($conn){
+    // template and userId grab
+    $data = $_SESSION['userid'];
+    $sql = "SELECT * FROM users WHERE usersId = ?;";
+
+    //Prepared statement
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        echo "SQL statment failed";
+    }else{
+        //Bind parameter to placeholder
+        mysqli_stmt_bind_param($stmt, "i", $data);
+
+        //Running parameters inside DB
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            echo "Seu nome: " . $row['usersName']
+            . "<br>Seu nome de usuario: " . $row['usersUid']
+            . "<br>Email: " . $row['usersEmail']
+            . "<br>Telefone para contato: " . $row['usersPhone']
+            . "<br>Localizacao: " . $row['usersLocation']
+            . "<br>ID de conta(Fixo): " . $row['usersId']
+            . "<hr><br>";
+        }
+    }
+}
+
+function noLoginDetected(){
+    echo '<script>alert("Opa, você não está logado. Acho que você não deveria estar aqui.") </script>
+    <a class="soft_text" href="main.php">
+        <div class="text">Clique aqui para retornar ao menu inicial e criar uma conta ou entrar em uma já existente.</div>
+    </a>';
+
+    header("Location: main.php?nologin");
 }
