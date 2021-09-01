@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Pet e Saúde</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css"/> -->
 </head>
 
 

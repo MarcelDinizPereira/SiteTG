@@ -4,9 +4,16 @@ include_once "includes/functions.inc.php";
 include_once "includes/dbh.inc.php";?>    
             
 <?php 
-if(isset($_SESSION["useruid"]))
-{}else{
+if(isset($_SESSION["useruid"])){
+    echo '
+    <div class="soft_text">
+        <p class="text_centered">
+            Bem vindo usuário [' , $_SESSION["useruid"] , ']
+        </p>
+    </div>';
+}else{
     noLoginDetected();
+}
 ?>
 
 <div class="soft_text"> 
