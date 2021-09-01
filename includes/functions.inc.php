@@ -85,7 +85,6 @@ function createUser($conn, $name, $email, $username, $pwd){
     exit();
 }
 
-
 function emptyInputLogin($username, $pwd){
     $result;
     if (empty($username) || empty($pwd) ){
@@ -232,9 +231,10 @@ function choosePetFromList($conn){
 
         while ($row = mysqli_fetch_assoc($result))
         {
-            echo
-            "<option value=". $row['idPet'] .">".
-            $row['nomePet']."</option>";
+            echo "
+                <option value=" . $row['idPet'] . ">"
+                    . $row['nomePet'] . 
+                "</option>";
         }
     }  
 }
@@ -259,22 +259,51 @@ function showUserInfo($conn){
 
         while ($row = mysqli_fetch_assoc($result))
         {
-            echo "Seu nome: " . $row['usersName']
-            . "<br>Seu nome de usuario: " . $row['usersUid']
-            . "<br>Email: " . $row['usersEmail']
-            . "<br>Telefone para contato: " . $row['usersPhone']
-            . "<br>Localizacao: " . $row['usersLocation']
-            . "<br>ID de conta(Fixo): " . $row['usersId']
-            . "<hr><br>";
+            echo "
+                <style>table, th, td {border:1px solid black;}</style>
+
+                <table style='width:400px'>
+                    <tr>
+                        <th>Seu nome:</th>
+                        <td>" . $row['usersName'] . "</td>
+                    </tr>
+                    <tr>
+                        <th>Seu nome de usuario:</th>
+                        <td>" . $row['usersUid'] . "</td>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <td>" . $row['usersEmail'] . "</td>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <td>" . $row['usersEmail'] . "</td>
+                    </tr>
+                    <tr>
+                        <th>Telefone para contato:</th>
+                        <td>" . $row['usersPhone'] . "</td>
+                    </tr>
+                    <tr>
+                        <th>Localizacao:</th>
+                        <td>" . $row['usersLocation'] . "</td>
+                    </tr>
+                    <tr>
+                        <th>ID de conta(Fixo):</th>
+                        <td>" . $row['usersId'] . "</td>
+                    </tr>
+                </table>
+            ";
         }
     }
 }
 
 function noLoginDetected(){
-    echo '<script>alert("Opa, você não está logado. Acho que você não deveria estar aqui.") </script>
-    <a class="soft_text" href="main.php">
-        <div class="text">Clique aqui para retornar ao menu inicial e criar uma conta ou entrar em uma já existente.</div>
-    </a>';
+    echo '
+        <script>alert("Opa, vocï¿½ nï¿½o estï¿½ logado. Acho que vocï¿½ nï¿½o deveria estar aqui.") </script>
+        <a class="soft_text" href="main.php">
+            <div class="text">Clique aqui para retornar ao menu inicial e criar uma conta ou entrar em uma jï¿½ existente.</div>
+        </a>
+        ';
 
     header("Location: main.php?nologin");
 }
